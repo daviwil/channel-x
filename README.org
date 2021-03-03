@@ -1,0 +1,23 @@
+#+title: channel-x: Don't try this at home
+
+This is my personal [[https://guix.gnu.org][GNU Guix]] channel for packages that are either too early to submit or inappropriate for the upstream repository.  It's also a place for me to experiment with managing a channel in case I come up with a more appropriate community-focused channel :wink:
+
+* How to Get Xtreme
+
+Add this channel to your list of channels in =~/.config/guix/channels.scm=:
+
+#+begin_src scheme
+
+  (cons* (channel
+          (name 'channel-x)
+          (url "https://github.com/daviwil/channel-x"))
+         (channel
+          (name 'nonguix) ;; You probably want this too
+          (url "https://gitlab.com/nonguix/nonguix"))
+         %default-channels)
+
+#+end_src
+
+* License
+
+Not sure if I should use GPL 3.0, WTFPL, or MIT, but it really doesn't matter that much.  You have my permission to copy these package definitions and use them and even upstream them to the main Guix repo, just add my name to the authors list in the file if you do that :)
