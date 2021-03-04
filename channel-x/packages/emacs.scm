@@ -103,6 +103,31 @@ buffer when navigating around your file system.  This will help avoid the many
 Dired buffers that get left around for each directory you visit.")
       (license license:gpl2+))))
 
+(define-public emacs-persistent-soft
+  (package
+    (name "emacs-persistent-soft")
+    (version "0.8.10")
+    (source
+       (origin
+         (uri (git-reference
+               (url "https://github.com/rolandwalker/persistent-soft")
+               (commit (string-append "v" version))))
+         (method git-fetch)
+         (sha256
+          (base32 "14p20br8vzxs39d4hswzrrkgwql5nnmn5j17cpbabzjvck42rixc"))
+         (file-name (git-file-name name version))))
+    (build-system emacs-build-system)
+    (propagated-inputs
+     `(("emacs-list-utils" ,emacs-list-utils)
+       ("emacs-pcache" ,emacs-pcache)))
+    (home-page "https://github.com/rolandwalker/persistent-soft")
+    (synopsis "Emacs package for persistent data storage")
+    (description
+     "persistent-soft is an Emacs package which wraps pcache.el to provide
+\"soft\" fetch and store routines which return `nil' instead of throwing an
+error when a key is not found.")
+    (license license:bsd-2)))
+
 (define-public emacs-unicode-fonts
   (let ((commit "e3942fe40b418bfb2dc4e73633e09195437fef01")
         (revision "0"))
