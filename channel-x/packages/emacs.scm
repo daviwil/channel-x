@@ -54,3 +54,27 @@ Emacs!")
 switch between buffers, an Emacs frame loses focus, etc.  You can think of
 it as an enhanced `auto-save-mode'")
       (license license:gpl3+))))
+
+(define-public emacs-app-launcher
+  (let ((commit "80a9ed37892ee6e21fe44487ed11f66a15e3f440")
+        (revision "0"))
+    (package
+      (name "emacs-app-launcher")
+      (version (git-version "0.1" revision commit))
+      (source
+       (origin
+         (uri (git-reference
+               (url "https://github.com/SebastienWae/app-launcher")
+               (commit commit)))
+         (method git-fetch)
+         (sha256
+          (base32 "1ywhfx8604ifmvcy2397bmvq2wj03jyqnm0g7lmqqi5p97rjbdgc"))
+         (file-name (git-file-name name version))))
+      (build-system emacs-build-system)
+      (home-page "https://github.com/SebastienWae/app-launcher")
+      (synopsis "Emacs package for launching desktop applications")
+      (description
+       "app-launcher is a package for launching applications with .desktop
+files.  It can be considered a replacement for `counsel-linux-app' for those
+who prefer a solution that works with Emacs' native completion systems.")
+      (license license:gpl3+))))
