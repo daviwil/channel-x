@@ -103,6 +103,26 @@ buffer when navigating around your file system.  This will help avoid the many
 Dired buffers that get left around for each directory you visit.")
       (license license:gpl2+))))
 
+(define-public emacs-pcache
+  (package
+    (name "emacs-pcache")
+    (version "0.5.1")
+    (source
+       (origin
+         (uri (git-reference
+               (url "https://github.com/sigma/pcache")
+               (commit (string-append "v" version))))
+         (method git-fetch)
+         (sha256
+          (base32 "0zmw3m86illywfn7kn9jgiq4b0hglj34mz0jji834iayjhkpkvr7"))
+         (file-name (git-file-name name version))))
+    (build-system emacs-build-system)
+    (home-page "https://github.com/sigma/pcache")
+    (synopsis "Emacs package for persistent caching")
+    (description
+     "pcache provides a hashtable-like persistent data cache for Emacs.")
+    (license license:gpl2+)))
+
 (define-public emacs-persistent-soft
   (package
     (name "emacs-persistent-soft")
