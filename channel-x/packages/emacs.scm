@@ -102,3 +102,31 @@ who prefer a solution that works with Emacs' native completion systems.")
 buffer when navigating around your file system.  This will help avoid the many
 Dired buffers that get left around for each directory you visit.")
       (license license:gpl2+))))
+
+(define-public emacs-unicode-fonts
+  (let ((commit "e3942fe40b418bfb2dc4e73633e09195437fef01")
+        (revision "0"))
+    (package
+      (name "emacs-unicode-fonts")
+      (version (git-version "0.4.10" revision commit))
+      (source
+       (origin
+         (uri (git-reference
+               (url "https://github.com/rolandwalker/unicode-fonts")
+               (commit commit)))
+         (method git-fetch)
+         (sha256
+          (base32 "1vyldpmbi92yqzj0v7wbxma86f3cla0jhxbmq8jzl94pqy6q98jc"))
+         (file-name (git-file-name name version))))
+      (build-system emacs-build-system)
+      (propagated-inputs
+       `(("emacs-list-utils" ,emacs-list-utils)
+         ("emacs-persistent-soft" ,emacs-persistent-soft)
+         ("emacs-pcache" ,emacs-pcache)))
+      (home-page "https://github.com/rolandwalker/unicode-fonts")
+      (synopsis "Emacs package for configuring unicode fonts")
+      (description
+       "unicode-fonts is a package that enables you to configure Unicode fonts
+and configure font mappings correctly from specific Unicode blocks.  This can
+be especially helpful for displaying emoji fonts in Emacs.")
+      (license license:bsd-2))))
