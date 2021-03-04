@@ -78,3 +78,27 @@ it as an enhanced `auto-save-mode'")
 files.  It can be considered a replacement for `counsel-linux-app' for those
 who prefer a solution that works with Emacs' native completion systems.")
       (license license:gpl3+))))
+
+(define-public emacs-dired-single
+  (let ((commit "98c2102429fcac6fbfdba9198c126eb1b3dcc4e5")
+        (revision "0"))
+    (package
+      (name "emacs-dired-single")
+      (version (git-version "0.2.0" revision commit))
+      (source
+       (origin
+         (uri (git-reference
+               (url "https://github.com/crocket/dired-single")
+               (commit commit)))
+         (method git-fetch)
+         (sha256
+          (base32 "1adh8sr7g2xc6b7is1cz48v109iavr2krkp5nd23bkgnjsjjkxlm"))
+         (file-name (git-file-name name version))))
+      (build-system emacs-build-system)
+      (home-page "https://github.com/crocket/dired-single")
+      (synopsis "Emacs package for reusing a dired buffer")
+      (description
+       "dired-single is a package that enables you to reuse the current Dired
+buffer when navigating around your file system.  This will help avoid the many
+Dired buffers that get left around for each directory you visit.")
+      (license license:gpl2+))))
