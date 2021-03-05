@@ -175,3 +175,30 @@ error when a key is not found.")
 and configure font mappings correctly from specific Unicode blocks.  This can
 be especially helpful for displaying emoji fonts in Emacs.")
       (license license:bsd-2))))
+
+(define-public emacs-evil-lispy
+  (let ((commit "ed317f7fccbdbeea8aa04a91b1b1f48a0e2ddc4e")
+         (revision "0"))
+    (package
+      (name "emacs-evil-lispy")
+      (version "1.1")
+      (source
+       (origin
+        (uri (git-reference
+              (url "https://github.com/sp3ctum/evil-lispy")
+              (commit commit)))
+        (method git-fetch)
+        (sha256
+         (base32 "0izgd9zwfwykmznv6wjrq9czmjqc1hkw41szrjmrcxy5kbz1p5c0"))
+        (file-name (git-file-name name version))))
+      (build-system emacs-build-system)
+      (propagated-inputs
+       `(("emacs-evil" ,emacs-evil)
+         ("emacs-hydra" ,emacs-hydra)
+         ("emacs-lispy" ,emacs-lispy)))
+      (home-page "https://github.com/sp3ctum/evil-lispy")
+      (synopsis "Evil keybindings for Emacs' Lispy package")
+      (description
+       "evil-lispy provides a layer of Evil Mode friendly bindings for the structural
+editing package called Lispy.")
+      (license license:gpl3+))))
