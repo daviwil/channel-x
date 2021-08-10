@@ -118,7 +118,7 @@
 
 (define-public obs27
   (package
-    (name "obs")
+    (name "obs27")
     (version "27.0.1")
     (source (origin
               (method git-fetch)
