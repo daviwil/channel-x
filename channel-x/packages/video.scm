@@ -119,7 +119,7 @@
 (define-public obs27
   (package
     (name "obs27")
-    (version "27.0.1")
+    (version "27.0.0-rc6")
     (source (origin
               (method git-fetch)
               (uri (git-reference
@@ -129,7 +129,7 @@
               (file-name (git-file-name name version))
               (sha256
                (base32
-                "04fzsr9yizmxy0r7z2706crvnsnybpnv5kgfn77znknxxjacfhkn"))
+                "06w1zip8qz5fbnvggcssl438njmx5carmaz7mm0jnvrmmf4g9q1n"))
               (patches
                (search-patches "obs-modules-location.patch"))))
     (build-system cmake-build-system)
