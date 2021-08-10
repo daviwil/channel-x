@@ -129,7 +129,7 @@
               (file-name (git-file-name name version))
               (sha256
                (base32
-                "06w1zip8qz5fbnvggcssl438njmx5carmaz7mm0jnvrmmf4g9q1n"))
+                "1wkmima9dx01cf73cxqi7gicy11nzx3gp2cya4sbcjrnybp14vf2"))
               (patches
                (search-patches "obs-modules-location.patch"))))
     (build-system cmake-build-system)
