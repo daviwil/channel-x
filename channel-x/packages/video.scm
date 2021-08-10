@@ -118,8 +118,8 @@
 
 (define-public obs27
   (package
-    (name "obs27")
-    (version "27.0.0-rc6")
+    (name "obs")
+    (version "27.0.1")
     (source (origin
               (method git-fetch)
               (uri (git-reference
